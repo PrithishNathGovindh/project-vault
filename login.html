@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Showcase – Login</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center px-4">
+
+  <div class="w-full max-w-md">
+    <!-- Logo and Title -->
+    <div class="text-center mb-8">
+      <div class="flex justify-center mb-4">
+        <div class="bg-indigo-600 p-4 rounded-2xl">
+          <i data-lucide="graduation-cap" class="w-12 h-12 text-white"></i>
+        </div>
+      </div>
+      <h1 class="text-3xl mb-2 text-gray-900">Project Showcase</h1>
+      <p class="text-gray-600">Academic Innovation Platform</p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+      <form class="space-y-6">
+        <div class="space-y-2">
+          <label for="email" class="block text-sm font-medium text-gray-700">
+            College Email ID
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="your.name@college.edu"
+            required
+            class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label for="password" class="block text-sm font-medium text-gray-700">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            required
+            class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full h-11 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition"
+        >
+          Sign In
+        </button>
+      </form>
+
+      <div class="mt-6 pt-6 border-t border-gray-200 text-center">
+        <p class="text-sm text-gray-600">
+          Don't have an account?
+          <button
+            type="button"
+            class="text-indigo-600 hover:text-indigo-700 font-medium"
+          >
+            Register with College Email
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <p class="text-center text-sm text-gray-500 mt-8">
+      Showcase your innovations. Build your portfolio. Connect with peers.
+    </p>
+  </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
