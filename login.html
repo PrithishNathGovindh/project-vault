@@ -27,7 +27,7 @@
 
     <!-- Login Form -->
     <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-      <form class="space-y-6">
+      <form id="loginForm" class="space-y-6">
         <div class="space-y-2">
           <label for="email" class="block text-sm font-medium text-gray-700">
             College Email ID
@@ -36,7 +36,6 @@
             id="email"
             type="email"
             placeholder="your.name@college.edu"
-            required
             class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
@@ -49,7 +48,6 @@
             id="password"
             type="password"
             placeholder="Enter your password"
-            required
             class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
@@ -81,9 +79,42 @@
     </p>
   </div>
 
-  <!-- Initialize Lucide Icons -->
+  <!-- JS Validation -->
   <script>
     lucide.createIcons();
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (email === '') {
+        alert('Please enter your email address');
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+
+      if (password === '') {
+        alert('Please enter your password');
+        return;
+      }
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long');
+        return;
+      }
+
+      // If all validations pass
+      alert('Login successful!');
+      // You can redirect or submit to backend here
+    });
   </script>
 
 </body>
