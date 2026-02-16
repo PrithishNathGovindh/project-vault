@@ -148,7 +148,7 @@ small {
 
   <div id="error" class="error"></div>
 
-  <form id="authForm">
+  <form id="authForm" onsubmit="gotohome(event)">
 
     <!-- Full Name -->
     <div class="input-group hidden" id="nameGroup">
@@ -222,6 +222,11 @@ small {
 <script>
 lucide.createIcons();
 let captchaAnswer = 0;
+
+function goToHome(event) {
+  event.preventDefault();
+  window.location.href = "homepage.html";
+}
 
 function generateCaptcha() {
   const num1 = Math.floor(Math.random() * 10) + 1;
@@ -330,6 +335,7 @@ document.getElementById("email").addEventListener("input", function () {
   }
 });
 
+
 // Form submit
 document.getElementById("authForm").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -378,7 +384,7 @@ document.getElementById("authForm").addEventListener("submit", function (e) {
       department
     });
 
-    alert("Registration Successful!");
+    goToHome(e);
   } else {
 
     if (!email || !password) {
@@ -400,7 +406,7 @@ document.getElementById("authForm").addEventListener("submit", function (e) {
         return;
       }
 
-    alert("Login Successful!");
+    goToHome(e);
   }
 });
 </script>
