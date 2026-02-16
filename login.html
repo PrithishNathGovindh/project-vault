@@ -1,121 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Showcase – Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Showcase</title>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-box {
+  background: #4f46e5;
+  padding: 15px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+h1 {
+  margin: 10px 0 5px;
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  height: 40px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+button.submit-btn {
+  width: 100%;
+  height: 45px;
+  background: #4f46e5;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button.submit-btn:hover {
+  background: #4338ca;
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.toggle-link button {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.hidden {
+  display: none;
+}
+small {
+  font-size: 12px;
+}
+</style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center px-4">
 
-  <div class="w-full max-w-md">
-    <!-- Logo and Title -->
-    <div class="text-center mb-8">
-      <div class="flex justify-center mb-4">
-        <div class="bg-indigo-600 p-4 rounded-2xl">
-          <i data-lucide="graduation-cap" class="w-12 h-12 text-white"></i>
-        </div>
-      </div>
-      <h1 class="text-3xl mb-2 text-gray-900">Project Showcase</h1>
-      <p class="text-gray-600">Academic Innovation Platform</p>
+<body>
+
+<div class="container">
+<div class="card">
+
+  <div class="logo">
+    <div class="logo-box">
+      <i data-lucide="graduation-cap" style="color:white;"></i>
     </div>
-
-    <!-- Login Form -->
-    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-      <form id="loginForm" class="space-y-6">
-        <div class="space-y-2">
-          <label for="email" class="block text-sm font-medium text-gray-700">
-            College Email ID
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="your.name@college.edu"
-            class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        <div class="space-y-2">
-          <label for="password" class="block text-sm font-medium text-gray-700">
-            Password
-          </label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-            class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        <button
-          type="submit"
-          class="w-full h-11 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition"
-        >
-          Sign In
-        </button>
-      </form>
-
-      <div class="mt-6 pt-6 border-t border-gray-200 text-center">
-        <p class="text-sm text-gray-600">
-          Don't have an account?
-          <button
-            type="button"
-            class="text-indigo-600 hover:text-indigo-700 font-medium"
-          >
-            Register with College Email
-          </button>
-        </p>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <p class="text-center text-sm text-gray-500 mt-8">
-      Showcase your innovations. Build your portfolio. Connect with peers.
-    </p>
+    <h1>Project Showcase</h1>
+    <p class="subtitle">Academic Innovation Platform</p>
   </div>
 
-  <!-- JS Validation -->
-  <script>
-     lucide.createIcons();
+  <h2 id="formTitle">Welcome Back</h2>
 
-    document.getElementById('loginForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+  <div id="error" class="error"></div>
 
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
+  <form id="authForm">
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    <!-- Full Name -->
+    <div class="input-group hidden" id="nameGroup">
+      <label>Full Name</label>
+      <input type="text" id="name">
+    </div>
 
-      if (email === '') {
-        alert('Please enter your email address');
-        return;
-      }
+    <!-- Email -->
+    <div class="input-group">
+      <label>College Email ID</label>
+      <input type="email" id="email" required placeholder="your.name@college.edu">
+      <small id="emailWarning" style="color:orange;"></small>
+    </div>
 
-      if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-      }
+    <!-- College -->
+    <div class="input-group hidden" id="collegeGroup">
+      <label>College/University Name (Optional)</label>
+      <input type="text" id="college">
+      <small id="autoCollege" style="color:gray;"></small>
+    </div>
 
-      if (password === '') {
-        alert('Please enter your password');
-        return;
-      }
+    <!-- Department -->
+    <div class="input-group hidden" id="departmentGroup">
+      <label>Department/Branch</label>
+      <input type="text" id="department">
+    </div>
 
-      if (password.length < 6) {
-        alert('Password must be at least 6 characters long');
-        return;
-      }
+    <!-- Password -->
+    <div class="input-group">
+      <label>Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" required>
+        <button type="button" id="togglePassword">
+          <i data-lucide="eye"></i>
+        </button>
+      </div>
+    </div>
 
-      // If all validations pass
-      alert('Login successful!');
-      // You can redirect or submit to backend here
+    <!-- Confirm Password -->
+    <div class="input-group hidden" id="confirmGroup">
+      <label>Confirm Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="confirmPassword">
+        <button type="button" id="toggleConfirmPassword">
+          <i data-lucide="eye"></i>
+        </button>
+      </div>
+    </div>
+    <!-- CAPTCHA (Only for Login) -->
+<div class="input-group" id="captchaGroup">
+  <label>Solve CAPTCHA</label>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <span id="captchaQuestion" style="font-weight:bold;"></span>
+    <button type="button" onclick="generateCaptcha()" style="padding:5px;">↻</button>
+  </div>
+  <input type="text" id="captchaInput" placeholder="Enter answer">
+</div>
+
+
+    <button type="submit" class="submit-btn" id="submitBtn">Sign In</button>
+  </form>
+
+  <div class="toggle-link">
+    <span id="toggleText">Don't have an account?</span>
+    <button onclick="toggleMode()" id="toggleBtn">Register with College Email</button>
+  </div>
+
+</div>
+</div>
+
+<script>
+lucide.createIcons();
+let captchaAnswer = 0;
+
+function generateCaptcha() {
+  const num1 = Math.floor(Math.random() * 10) + 1;
+  const num2 = Math.floor(Math.random() * 10) + 1;
+
+  captchaAnswer = num1 + num2;
+
+  document.getElementById("captchaQuestion").textContent =
+    num1 + " + " + num2 + " = ?";
+}
+
+generateCaptcha();
+
+let isRegister = false;
+
+// Elements
+const nameGroup = document.getElementById("nameGroup");
+const collegeGroup = document.getElementById("collegeGroup");
+const departmentGroup = document.getElementById("departmentGroup");
+const confirmGroup = document.getElementById("confirmGroup");
+const formTitle = document.getElementById("formTitle");
+const submitBtn = document.getElementById("submitBtn");
+const toggleText = document.getElementById("toggleText");
+const toggleBtn = document.getElementById("toggleBtn");
+const errorDiv = document.getElementById("error");
+
+function resetForm() {
+  document.getElementById("authForm").reset();
+  errorDiv.textContent = "";
+}
+
+function toggleMode() {
+  isRegister = !isRegister;
+
+  nameGroup.classList.toggle("hidden");
+  collegeGroup.classList.toggle("hidden");
+  departmentGroup.classList.toggle("hidden");
+  confirmGroup.classList.toggle("hidden");
+
+  formTitle.textContent = isRegister ? "Create Account" : "Welcome Back";
+  submitBtn.textContent = isRegister ? "Create Account" : "Sign In";
+  toggleText.textContent = isRegister ? "Already have an account?" : "Don't have an account?";
+  toggleBtn.textContent = isRegister ? "Sign In" : "Register with College Email";
+  //captchaGroup.style.display = isRegister ? "none" : "block";
+  //generateCaptcha()
+  resetForm();
+}
+
+// Email validation
+function isValidCollegeEmail(email) {
+  const patterns = [
+    /\.edu$/i,
+    /\.ac\.\w+$/i,
+    /\.edu\.\w+$/i
+  ];
+  return patterns.some(pattern => pattern.test(email));
+}
+
+// Extract college
+function extractCollege(email) {
+  const domain = email.split('@')[1]?.split('.')[0];
+  if (!domain) return '';
+  return domain
+    .split(/[-_]/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+// Toggle password visibility
+function togglePassword(inputId, btnId) {
+  const input = document.getElementById(inputId);
+  const btn = document.getElementById(btnId);
+
+  const type = input.type === "password" ? "text" : "password";
+  input.type = type;
+
+  btn.innerHTML = type === "password"
+    ? '<i data-lucide="eye"></i>'
+    : '<i data-lucide="eye-off"></i>';
+
+  lucide.createIcons();
+}
+
+document.getElementById("togglePassword")
+  .addEventListener("click", () => togglePassword("password", "togglePassword"));
+
+document.getElementById("toggleConfirmPassword")
+  .addEventListener("click", () => togglePassword("confirmPassword", "toggleConfirmPassword"));
+
+// Live email feedback
+document.getElementById("email").addEventListener("input", function () {
+  const email = this.value;
+  const warning = document.getElementById("emailWarning");
+  const autoCollege = document.getElementById("autoCollege");
+
+  if (isRegister && email && !isValidCollegeEmail(email)) {
+    warning.textContent = "Please use a valid college email (.edu, .ac.in, etc.)";
+  } else {
+    warning.textContent = "";
+  }
+
+  if (isRegister && email) {
+    autoCollege.textContent = "Will auto-fill as: " + extractCollege(email);
+  } else {
+    autoCollege.textContent = "";
+  }
+});
+
+// Form submit
+document.getElementById("authForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  errorDiv.textContent = "";
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  const name = document.getElementById("name").value.trim();
+  const college = document.getElementById("college").value.trim();
+  const department = document.getElementById("department").value.trim();
+
+  if (isRegister) {
+
+    if (!isValidCollegeEmail(email)) {
+      errorDiv.textContent = "Please use a valid college email address.";
+      return;
+    }
+
+    if (password.length < 6) {
+      errorDiv.textContent = "Password must be at least 6 characters long.";
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      errorDiv.textContent = "Passwords do not match.";
+      return;
+    }
+
+    if (!name) {
+      errorDiv.textContent = "Please enter your full name.";
+      return;
+    }
+
+    if (!department) {
+      errorDiv.textContent = "Please enter your department.";
+      return;
+    }
+
+    const finalCollege = college || extractCollege(email);
+
+    console.log({
+      name,
+      email: email.toLowerCase(),
+      college: finalCollege,
+      department
     });
-  </script>
+
+    alert("Registration Successful!");
+  } else {
+
+    if (!email || !password) {
+      errorDiv.textContent = "Please enter both email and password.";
+      return;
+    }
+
+    console.log({
+      name: "Demo User",
+      email: email.toLowerCase(),
+      college: extractCollege(email) || "Demo College",
+      department: "Computer Science"
+    });
+     const captchaInput = document.getElementById("captchaInput").value;
+
+      if (parseInt(captchaInput) !== captchaAnswer) {
+        errorDiv.textContent = "Incorrect CAPTCHA. Please try again.";
+        generateCaptcha();
+        return;
+      }
+
+    alert("Login Successful!");
+  }
+});
+</script>
 
 </body>
 </html>
